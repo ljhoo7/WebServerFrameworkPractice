@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using System;
 
 namespace ChangeConsoleProjectToASP
 {
@@ -6,7 +9,13 @@ namespace ChangeConsoleProjectToASP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var host = Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            }).Build();
+
+            host.Run();
         }
     }
 }
