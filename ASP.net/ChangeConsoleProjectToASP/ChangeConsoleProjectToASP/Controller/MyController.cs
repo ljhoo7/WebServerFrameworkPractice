@@ -6,15 +6,30 @@ using System.Threading.Tasks;
 
 namespace ChangeConsoleProjectToASP
 {
-    [Route("test")]
     public class MyController : Controller
     {
-        [HttpPost]
         [Route("test")]
-        public static async Task TestAsync()
+        [HttpPost]
+        public async Task Test1Async()
         {
-            Console.WriteLine("test");
+            Console.WriteLine("test1");
             await Task.Delay(10).ConfigureAwait(false);
         }
+
+        [Route("test")]
+        [HttpGet]
+        public async Task Test2Async()
+        {
+            Console.WriteLine("test2");
+            await Task.Delay(10).ConfigureAwait(false);
+        }
+
+        //[Route("test")]
+        //[HttpGet]
+        //public async Task Test3Async()
+        //{
+        //    Console.WriteLine("test3");
+        //    await Task.Delay(10).ConfigureAwait(false);
+        //}
     }
 }

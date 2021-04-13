@@ -13,6 +13,7 @@ namespace ChangeConsoleProjectToASP
             .ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
+                webBuilder.UseUrls(new string[] { "http://localhost:5556" });
             }).Build();
 
             host.Run();
